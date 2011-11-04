@@ -6,7 +6,7 @@ module RedmineClosedColumn
         returning available_columns_without_first_closed_date do |columns|
           columns << QueryColumn.new(:first_closed_date,
             :caption => :label_first_closed_date,
-	    :sortable => "(SELECT journals.created_on FROM journals, journal_details WHERE journals.journalized_id = t0_r0 AND journals.id = journal_details.journal_id AND journal_details.prop_key = 'status_id' AND journal_details.property = 'attr' AND journal_details.value IN (SELECT is_close.id FROM issue_statuses is_close WHERE is_close.is_closed = 1) ORDER BY journals.created_on DESC LIMIT 1,1)"
+	    :sortable => "(SELECT journals.created_on FROM journals, journal_details WHERE journals.journalized_id = t0_r0 AND journals.id = journal_details.journal_id AND journal_details.prop_key = 'status_id' AND journal_details.property = 'attr' AND journal_details.value IN (SELECT is_close.id FROM issue_statuses is_close WHERE is_close.is_closed = 1) ORDER BY journals.created_on DESC LIMIT 1)"
           ) unless columns.detect{ |c| c.name == :first_closed_date }
         end
       end
@@ -15,7 +15,7 @@ module RedmineClosedColumn
         returning available_columns_without_last_closed_date do |columns|
           columns << QueryColumn.new(:last_closed_date,
             :caption => :label_last_closed_date,
-	    :sortable => "(SELECT journals.created_on FROM journals, journal_details WHERE journals.journalized_id = t0_r0 AND journals.id = journal_details.journal_id AND journal_details.prop_key = 'status_id' AND journal_details.property = 'attr' AND journal_details.value IN (SELECT is_close.id FROM issue_statuses is_close WHERE is_close.is_closed = 1) ORDER BY journals.created_on LIMIT 1,1)"
+	    :sortable => "(SELECT journals.created_on FROM journals, journal_details WHERE journals.journalized_id = t0_r0 AND journals.id = journal_details.journal_id AND journal_details.prop_key = 'status_id' AND journal_details.property = 'attr' AND journal_details.value IN (SELECT is_close.id FROM issue_statuses is_close WHERE is_close.is_closed = 1) ORDER BY journals.created_on LIMIT 1)"
           ) unless columns.detect{ |c| c.name == :last_closed_date }
         end
       end
