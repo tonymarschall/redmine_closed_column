@@ -1,0 +1,10 @@
+= Redmine close column
+
+This plugin adds a first and last closed date column to issue lists.
+
+== Installation and Setup
+
+1. Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins 
+2. Restart your Redmine web servers (e.g. mongrel, thin, mod_rails)
+
+
