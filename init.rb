@@ -9,6 +9,6 @@ end
 Redmine::Plugin.register :redmine_closed_column do
   name 'Redmine Issue closed column'
   author 'Tony Marschall'
-  description 'This plugin adds a first closed date column to issue lists.'
-  version '0.1'
+  description 'This plugin adds a first and last closed date column to issue lists.'
+  version '0.2'
 end
